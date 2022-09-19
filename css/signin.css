@@ -1,0 +1,106 @@
+.bg-image {
+  background: url(/img/CYBAreadinglist.jpg) no-repeat;
+  background-size: cover;
+  filter: blur(5px);
+  -webkit-filter: brightness(0.2);
+  height: 100%;
+  width: 100%;
+}
+
+main {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background-image: url(/img/book-tile-created/homepage-gradient.svg);
+  background-repeat: no-repeat;
+  background-position: left 100% top 100% !important;
+}
+
+main .container {
+  padding: 0 2rem;
+  max-width: 40rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.welcome-heading {
+  font-size: 2.4rem;
+  display: block;
+  text-align: center;
+}
+
+.login,
+.signup {
+  font-size: 1.4rem;
+  display: grid;
+  gap: 20px;
+  padding: 2.4rem;
+  box-shadow: 0 0rem 2.4rem rgba(0, 0, 0, 0.075);
+  border-radius: 8px;
+  width: 100%;
+  max-width: 40rem;
+  background-color: #fff;
+}
+
+.form-field {
+  display: grid;
+  gap: 5px;
+  width: 100%;
+}
+
+.email,
+.password {
+  font-size: 1.4rem;
+  padding: 0 2.4rem;
+  width: 100%;
+  height: 3.4rem;
+  border-radius: 4px;
+  background-color: #d5d4db;
+  border: none;
+  outline: none;
+}
+
+.remember-me-field,
+.form-btns {
+  color: #555;
+  display: flex;
+  gap: 10px;
+}
+
+.form-btns {
+  justify-content: end;
+  align-items: center;
+}
+
+.forget-pass {
+  color: #555;
+  text-decoration: underline;
+}
+
+.login-btn {
+  font-weight: 600;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  color: #fff;
+  background-color: #66757f;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+}
+
+.register-btn {
+  text-align: center;
+  display: block;
+  font-weight: 600;
+  margin-top: 4.8rem;
+  font-size: 1.4rem;
+  color: #555;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+.register-btn:hover,
+.register-btn:active {
+  text-decoration: underline;
+}

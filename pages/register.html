@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/queries.css" />
+    <link rel="stylesheet" href="/css/signin.css" />
+    <link rel="shortcut icon" href="#" type="image/x-icon" />
+
+    <!-- GOOGLE FONTS (RUBIK) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&family=Rubik:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&family=Ubuntu:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Smooth Scroll Script -->
+    <script
+      defer
+      src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"
+    ></script>
+
+    <!-- Main JavaScript File -->
+    <script type="module" defer src="/js/signup.js"></script>
+    <title>Register</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <a href="/index.html">
+          <img src="/img/book-tile-created/logo2.png" alt="" class="logo" />
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <h2 class="welcome-heading">SIGN UP!</h2>
+        <p class="small-heading"></p>
+        <form action="" class="signup">
+          <div class="form-field">
+            <label for="Username" class="email-label">Email</label>
+            <input type="text" name="email" class="email" />
+          </div>
+          <div class="form-field">
+            <label for="password" class="password-label">Password</label>
+            <input type="password" class="password" name="password" />
+          </div>
+          <div class="form-field">
+            <label for="password" class="password-label">Retype Password</label>
+            <input type="password" class="password" name="retype-password" />
+          </div>
+          <div class="remember-me-field">
+            <input type="checkbox" name="remember" id="" />
+            <label for="remember" class="remember">Remember me</label>
+          </div>
+          <div class="form-btns">
+            <button class="login-btn">SUBMIT</button>
+          </div>
+        </form>
+        <a href="/pages/login.html" class="register-btn"
+          >&rarr; Old?, Sign-in Here</a
+        >
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/general.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/responsiveness.css" />
+
+    <!-- GOOGLE FONTS (RUBIK) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&family=Rubik:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&family=Ubuntu:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/responsiveness.css   " />
+
+    <!-- IONICONS -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule=""
+      src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"
+    ></script>
+
+    <!-- Smooth Scroll Script -->
+    <script
+      defer
+      src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"
+    ></script>
+
+    <style>
+      section.genre_books .container {
+        display: grid;
+        gap: 5rem;
+        padding: 0 2rem 5rem;
+      }
+    </style>
+
+    <!-- Main JavaScript File -->
+    <!-- <script type="module" defer src="/js/index.js"></script> -->
+    <!-- <script defer src="/js/api.js"></script> -->
+    <script type="module" defer src="/js/header.js"></script>
+    <script type="module" defer src="/js/index.js"></script>
+    <script defer src="/js/search.js"></script>
+    <script defer src="/js/api-bookinfo.js"></script>
+    <!-- <script defer src="/js/fetchData.js"></script> -->
+
+    <title>Book Rooom - Adventure Books</title>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header header-diff">
+      <div class="container">
+        <a href="/index.html">
+          <img src="/img/book-tile-created/logo2.png" alt="" class="logo" />
+        </a>
+        <nav>
+          <a href="./pages/register.html" class="login">Join</a>
+          <button class="logout" onclick="logoutFunc()">Logout</button>
+        </nav>
+      </div>
+    </header>
+    <!-- End Header -->
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="container">
+          <!-- Left Side -->
+          <div class="hero-text-box">
+            <h1 class="heading-primary">Best-selling series "Bridgertons"</h1>
+            <p class="hero-description">a novel by Julia Quinn</p>
+            <div class="search-div">
+              <form action="" class="search">
+                <input
+                  required
+                  type="search"
+                  name="searchInp"
+                  id=""
+                  class="search-input search-element"
+                  placeholder="Browse Books"
+                />
+                <!-- <button class="search-btn">search</button> -->
+                <a href="/pages/search.html" class="search-btn search-element">
+                  <span class="material-symbols-outlined"> search </span>
+                </a>
+              </form>
+              <div class="content" data-found-books-container></div>
+              <template data-book-template>
+                <a href="/pages/show_book.html" class="found" data-link>
+                  <img src="" alt="" data-img />
+                  <div class="found-details">
+                    <h2 data-title></h2>
+                    <h3 data-author></h3>
+                  </div>
+                </a>
+              </template>
+            </div>
+          </div>
+
+          <!-- Right Side -->
+          <div class="hero-img-box">
+            <img
+              src="/img/book-tile-created/bridgertonBook.webp"
+              alt=""
+              class="hero-img"
+            />
+          </div>
+        </div>
+      </section>
+      <!-- End Hero Section -->
+
+      <!-- Genre -->
+      <section class="genre_books">
+        <div class="container">
+          <h2>Adventure Books</h2>
+
+          <!-- Loader -->
+          <div
+            class="loader loader2"
+            style="
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height: fit-content;
+            "
+          >
+            <!-- <img
+        src="/img/book-tile-created/inkling_spinner.gif"
+        alt=""
+        style="width: 60%"
+      /> -->
+            <img src="/img/book-tile-created/load-loading.gif" alt="" />
+          </div>
+          <!-- End Loader -->
+
+          <!-- Genre Books -->
+          <div class="book_cards_wrapper">
+            <!-- Book Card -->
+
+            <!-- <div class="" id="bookEl"></div> -->
+            <!-- <div class="book_card">
+              <picture>
+                <img src="../img/sands_of_eppla.jpg" alt="Book Image" />
+              </picture>
+              <div class="card_rating">
+                <img src="/img/socials/star.svg" alt="" />
+                <img src="/img/socials/star.svg" alt="" />
+                <img src="/img/socials/star.svg" alt="" />
+                <img src="/img/socials/star.svg" alt="" />
+                <img src="/img/socials/star.svg" alt="" />
+              </div>
+              <h4>Sound Of Eppler</h4>
+              <p>By Jacob Jones</p>
+              <span>$24.99</span>
+            </div> -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <a href="#" class="logo">
+          <img
+            src="/img/book-tile-created/logo2.png"
+            alt="BookRoom logo"
+            class="logo"
+          />
+        </a>
+
+        <div class="content">
+          <div>
+            <h3>Contact Us</h3>
+            <div class="contact_details">
+              <address>
+                Address: 1 PTI Rd., 2nd Floor, Nigeria, NG 332008.
+              </address>
+              <p>
+                <a class="footer-link" href="tel:812-796-4509">812-796-4509</a>
+              </p>
+              <p>
+                <a class="footer-link" href="mailto:hello@bookroom.com"
+                  >hello@bookroom.com</a
+                >
+              </p>
+              <ul class="social-links">
+                <li>
+                  <a class="footer-link" href="#">
+                    <ion-icon
+                      class="social-icon"
+                      name="logo-instagram"
+                    ></ion-icon>
+                  </a>
+                </li>
+                <li>
+                  <a class="footer-link" href="#">
+                    <ion-icon
+                      class="social-icon"
+                      name="logo-facebook"
+                    ></ion-icon>
+                  </a>
+                </li>
+                <li>
+                  <a class="footer-link" href="#">
+                    <ion-icon
+                      class="social-icon"
+                      name="logo-twitter"
+                    ></ion-icon>
+                  </a>
+                </li>
+                <li>
+                  <a class="footer-link" href="#">
+                    <ion-icon
+                      class="social-icon"
+                      name="logo-snapchat"
+                    ></ion-icon>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <h3>About</h3>
+            <ul class="footer-nav">
+              <li><a href="#" class="footer-link">Local Bookstore</a></li>
+              <li><a href="#" class="footer-link">Our Awards</a></li>
+              <li><a href="#" class="footer-link">eBooks</a></li>
+              <li><a href="#" class="footer-link">Charities</a></li>
+              <li><a href="#" class="footer-link">Local Bookstore</a></li>
+              <li><a href="#" class="footer-link">Work with us</a></li>
+              <li><a href="#" class="footer-link">Why buy from us</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>Support</h3>
+            <ul class="footer-nav">
+              <li><a href="#" class="footer-link">Placing an order</a></li>
+              <li><a href="#" class="footer-link">Contact</a></li>
+              <li><a href="#" class="footer-link">Refund & Returns</a></li>
+              <li><a href="#" class="footer-link">Payment Options</a></li>
+              <li><a href="#" class="footer-link">Become an Affiliate</a></li>
+              <li><a href="#" class="footer-link">Privacy Policy</a></li>
+              <li><a href="#" class="footer-link">Sitemap</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>Shipping</h3>
+            <ul class="footer-nav">
+              <li><a href="#" class="footer-link">Track My Order</a></li>
+              <li><a href="#" class="footer-link">Standard Shipping</a></li>
+              <li><a href="#" class="footer-link">Express Shipping</a></li>
+              <li><a href="#" class="footer-link">Shipping Timeframes</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="copyright">
+          Copyright &copy; <span class="year">2022</span> by BookRoom Inc. All
+          rights reserved.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

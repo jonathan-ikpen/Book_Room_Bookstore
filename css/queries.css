@@ -1,0 +1,22 @@
+@media screen and (max-width: 414px) {
+  section.searched_books_list .book-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+  }
+  section.searched_books_list .book-img {
+    width: 100px;
+  }
+
+  section.searched_books_list .book-title {
+    font-size: 1.4rem;
+  }
+
+  section.searched_books_list .book-amount {
+    display: none;
+  }
+
+  section.contam .book-card {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+  }
+}

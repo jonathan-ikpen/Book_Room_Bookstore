@@ -1,0 +1,36 @@
+@media screen and (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media screen and (min-width: 996px) {
+  .container {
+    max-width: 996px;
+  }
+
+  section.hero .container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cta-section {
+    justify-content: flex-start;
+    gap: 10rem;
+  }
+
+  .cta-section img {
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+  }
+}
