@@ -139,6 +139,8 @@ const searchFunc = (data) => {
     console.log(datas);
 
     datas.forEach((res) => {
+      const nairaPrice = res.price.replaceAll("£", "₦");
+      res.price = nairaPrice;
       const html = `
           <div class="book-card">
           <div class="book-img">
@@ -157,7 +159,7 @@ const searchFunc = (data) => {
             </div>
             <div class="book-ctas">
               <button class="book-amount">${res.price}</button>
-              <button class="book-cta-btn">Buy Now</button>
+              <button class="book-cta-btn" onclick=viewBookInfo2(${res.id})>Buy Now</button>
             </div>
           </div>
         </div>
@@ -165,4 +167,10 @@ const searchFunc = (data) => {
       bookPage.insertAdjacentHTML("afterbegin", html);
     });
   });
+};
+
+// View book info
+const viewBookInfo2 = (id) => {
+  const redirect = `./show_book.html?boook_id=${id}`;
+  location.href = redirect;
 };

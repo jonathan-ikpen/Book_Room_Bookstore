@@ -6,7 +6,7 @@ console.log("script running...");
 const buyLink = `https://api.whatsapp.com/send?phone=2348127964509text=Hello%20BookRoom%20I%20need%20the%20book%20with%20the%20title:%20sands%20of%20eppla`;
 
 const buyLink2 =
-  "https://api.whatsapp.com/send?phone=2348127964509&text=Hello%20BookRoom,%20I%20need%20the%20book%20with%20the%20title:%20...%20";
+  "https://api.whatsapp.com/send?phone=2348124192833&text=Hello%20BookRoom,%20I%20need%20the%20book%20with%20the%20title:%20...%20";
 
 function buynow() {
   if (auth.currentUser) {
