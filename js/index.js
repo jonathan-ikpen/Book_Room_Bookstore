@@ -64,6 +64,7 @@ if (bookPrice2) {
 
 const heading = document.querySelector(".welcome-heading");
 const registerBtn2 = document.querySelector(".register-btn");
+const dashBtn = document.querySelector(".dashBtn");
 
 // subscribing to auth changes
 onAuthStateChanged(auth, (user) => {
@@ -73,6 +74,7 @@ onAuthStateChanged(auth, (user) => {
     if (heading) {
       heading.textContent = "You're already logged in! 😊";
       registerBtn2.style.display = "none";
+      dashBtn.style.display = "";
     }
     if (logoutBtn) {
       logoutBtn.style.display = "block";

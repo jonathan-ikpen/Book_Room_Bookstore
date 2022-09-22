@@ -7,6 +7,7 @@ import {
 
 const errorMsg = document.querySelector(".error-msg");
 const heading = document.querySelector(".welcome-heading");
+const dashBtn = document.querySelector(".dashBtn");
 
 const loginForm = document.querySelector(".login");
 loginForm.addEventListener("submit", (e) => {
@@ -37,6 +38,7 @@ loginForm.addEventListener("submit", (e) => {
 if (auth.currentUser) {
   console.log(auth);
   heading.textContent = "You're already logged in! 😊";
+  dashBtn.style.display = "";
 } else {
   heading.textContent = "LOGIN HERE";
 }
