@@ -1,5 +1,5 @@
 // Fetch all boook
-const fetchData = async () => {
+const fetchData3 = async () => {
   const url = "../book.json";
   try {
     const response = await fetch(url);
@@ -17,4 +17,4 @@ const fetchData = async () => {
     console.log(err);
   }
 };
-fetchData();
+fetchData3();

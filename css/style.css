@@ -289,10 +289,12 @@ section.popular_books .book-card {
 
 .book-cta-btn:hover,
 .follow-btn:hover,
-.btn-add-cart:hover {
+.btn-add-cart:hover,
+.login-btn:hover {
   background-color: #fff;
   color: #555;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.644);
+  cursor: pointer;
 }
 
 /* Popular Authors Section */

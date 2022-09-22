@@ -62,12 +62,21 @@ if (bookPrice2) {
 }
 // const registerBtn = document.querySelector(".signup-nav-btn");
 
+const heading = document.querySelector(".welcome-heading");
+const registerBtn2 = document.querySelector(".register-btn");
+
 // subscribing to auth changes
 onAuthStateChanged(auth, (user) => {
   console.log("user status changed:", user);
   if (user) {
     loginBtn.style.display = "none";
-    logoutBtn.style.display = "block";
+    if (heading) {
+      heading.textContent = "You're already logged in! 😊";
+      registerBtn2.style.display = "none";
+    }
+    if (logoutBtn) {
+      logoutBtn.style.display = "block";
+    }
     console.log(user.email);
   }
 });

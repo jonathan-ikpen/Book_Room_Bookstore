@@ -53,6 +53,7 @@
     <!-- <script defer src="/js/api-bookinfo.js"></script> -->
     <script defer src="/js/fetchData.js"></script>
     <script defer src="/js/showBook.js"></script>
+    <script defer src="/js/search.js"></script>
 
     <!-- <script
       type="text/javascript"
@@ -80,14 +81,17 @@
           <input
             required
             type="search"
-            name="search"
+            name="searchInp"
             id=""
             class="search-input search-element"
             placeholder="Browse Books"
           />
-          <a href="/pages/search.html" class="search-btn search-element">
+          <button
+            class="search-btn search-element search-btn"
+            onclick="searchRedir3()"
+          >
             <span class="material-symbols-outlined"> search </span>
-          </a>
+          </button>
         </form>
       </div>
     </header>
@@ -103,23 +107,8 @@
           height: fit-content;
         "
       >
-        <!-- <img
-          src="/img/book-tile-created/inkling_spinner.gif"
-          alt=""
-          style="width: 60%"
-        /> -->
         <img src="/img/book-tile-created/load-loading.gif" alt="" />
       </div>
-      <!-- <section class="search">
-        <input
-          type="search"
-          name="search_input"
-          id=""
-          class="search_input"
-          placeholder="Search by Book Title, Author, or ISBN"
-        />
-        <button class="search_btn book-amount">Search</button>
-      </section> -->
 
       <section class="container searched_books_list contam">
         <template>
@@ -283,7 +272,7 @@
         </div>
 
         <p class="copyright">
-          Copyright &copy; <span class="year">2022</span> by BookRoom Inc. All
+          Copyright &copy; <span class="year">2022</span> by CSIT Group 4 All
           rights reserved.
         </p>
       </div>

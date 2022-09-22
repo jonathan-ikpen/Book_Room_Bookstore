@@ -61,7 +61,7 @@
     <!-- Header -->
     <header class="header header-diff">
       <div class="container">
-        <a href="#">
+        <a href="./index.html">
           <img src="/img/book-tile-created/logo2.png" alt="" class="logo" />
         </a>
         <nav>
@@ -93,10 +93,12 @@
                   class="search-input search-element"
                   placeholder="Browse Books"
                 />
-                <!-- <button class="search-btn">search</button> -->
-                <a href="/pages/search.html" class="search-btn search-element">
+                <button
+                  class="search-btn search-element search-btn"
+                  onclick="searchRedir()"
+                >
                   <span class="material-symbols-outlined"> search </span>
-                </a>
+                </button>
               </form>
               <div class="content" data-found-books-container></div>
               <template data-book-template>
@@ -178,12 +180,12 @@
 
             <div class="book-card img-up">
               <div class="book-img">
-                <img src="/img/hamlet.jpg" alt="" />
+                <img src="/img/Trending_Books/toParadise.webp" alt="" />
               </div>
               <div class="book-details">
                 <span class="book-category">Best Seller</span>
-                <h3 class="book-title">Hamlet</h3>
-                <p class="book-author">By William Shakespear</p>
+                <h3 class="book-title">To Paradise</h3>
+                <p class="book-author">By Hanya Yanagihara</p>
                 <div class="book-rating">
                   <img src="/img/socials/star.svg" alt="" />
                   <img src="/img/socials/star.svg" alt="" />
@@ -583,7 +585,7 @@
         </div>
 
         <p class="copyright">
-          Copyright &copy; <span class="year">2022</span> by BookRoom Inc. All
+          Copyright &copy; <span class="year">2022</span> by CSIT Group 4 All
           rights reserved.
         </p>
       </div>

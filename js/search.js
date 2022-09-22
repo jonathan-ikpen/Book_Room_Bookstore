@@ -83,7 +83,7 @@ const homeSearchFunc = (data) => {
 
 // Search page
 const bookPage = document.querySelector(".searched_books_list");
-const loader = document.querySelector(".loader");
+const loader2 = document.querySelector(".loader");
 if (bookPage) {
   // bookPage.innerHTML = "";
   //   datas.forEach((res) => {
@@ -118,7 +118,7 @@ if (bookPage) {
 const searchFunc = (data) => {
   search.addEventListener("submit", (e) => {
     e.preventDefault();
-    loader.style.display = "none";
+    loader2.style.display = "none";
     bookPage.innerHTML = "";
     setLoading(true);
     const inputData = search.searchInp.value.toLowerCase();
@@ -168,6 +168,30 @@ const searchFunc = (data) => {
     });
   });
 };
+
+const searchBtn2 = document.querySelector(".search-btn");
+console.log(searchBtn2);
+const searchRedir = () => {
+  search.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const searchValue = searchInp.value.toLowerCase();
+    const redirect = `./pages/search.html?search=${searchValue}`;
+    location.href = redirect;
+    // console.log(redirect);
+  });
+};
+
+const searchRedir3 = () => {
+  search.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const searchValue = searchInp.value.toLowerCase();
+    const redirect = `./search.html?search=${searchValue}`;
+    location.href = redirect;
+  });
+};
+
+window.searchRedir = searchRedir;
+window.searchRedir3 = searchRedir3;
 
 // View book info
 const viewBookInfo2 = (id) => {

@@ -97,10 +97,12 @@
                   class="search-input search-element"
                   placeholder="Browse Books"
                 />
-                <!-- <button class="search-btn">search</button> -->
-                <a href="/pages/search.html" class="search-btn search-element">
+                <button
+                  class="search-btn search-element search-btn"
+                  onclick="searchRedir3()"
+                >
                   <span class="material-symbols-outlined"> search </span>
-                </a>
+                </button>
               </form>
               <div class="content" data-found-books-container></div>
               <template data-book-template>
@@ -276,7 +278,7 @@
         </div>
 
         <p class="copyright">
-          Copyright &copy; <span class="year">2022</span> by BookRoom Inc. All
+          Copyright &copy; <span class="year">2022</span> by CSIT Group 4 All
           rights reserved.
         </p>
       </div>

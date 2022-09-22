@@ -1,5 +1,5 @@
 const booksWrapper = document.querySelector(".book_cards_wrapper");
-const loader2 = document.querySelector(".loader");
+const loader3 = document.querySelector(".loader");
 
 const fetchData2 = async () => {
   const url = "../book.json";
@@ -54,7 +54,7 @@ const renderBooks = (books) => {
     </a>
   </div>`;
 
-    loader2.style.display = "none";
+    loader3.style.display = "none";
     booksWrapper.insertAdjacentHTML("afterbegin", html);
   });
 };
