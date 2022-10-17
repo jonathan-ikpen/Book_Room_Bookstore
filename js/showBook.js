@@ -13,7 +13,7 @@ const getBookId = parseInt(getBookSearch);
 console.log(getBookId);
 
 const buyLink2 =
-  "https://api.whatsapp.com/send?phone=2348124192833&text=Hello%20BookRoom,%20I%20need%20the%20book%20with%20the%20title:%20";
+  "https://api.whatsapp.com/send?phone=2348127964509&text=Hello%20BookRoom,%20I%20need%20the%20book%20with%20the%20title:%20";
 
 const queryBook = (books) => {
   books.map((book) => {
