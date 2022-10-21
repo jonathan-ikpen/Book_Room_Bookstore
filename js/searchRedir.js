@@ -1,22 +1,45 @@
+import { db, auth, colRef, getDocs } from "./index.js";
+import { viewBookInfo2 } from "./search.js";
+
 const getBookSearch = location.search.substring(8);
-console.log(getBookSearch);
+// console.log(getBookSearch);
+const loader2 = document.querySelector(".loader");
+const bookPage = document.querySelector(".searched_books_list");
+
+// const fetchData2 = async () => {
+//   const url = "../book.json";
+//   try {
+//     const response = await fetch(url);
+//     let res = response.json();
+//     res
+//       .then((data) => {
+//         let data2 = data.Books;
+//         searchRedir2(data2);
+//       })
+//       .catch((err) => {
+//         console.log(err);
+//       });
+//   } catch (err) {
+//     console.log(err);
+//   }
+// };
+// fetchData2();
 
 const fetchData2 = async () => {
-  const url = "../book.json";
-  try {
-    const response = await fetch(url);
-    let res = response.json();
-    res
-      .then((data) => {
-        let data2 = data.Books;
-        searchRedir2(data2);
-      })
-      .catch((err) => {
-        console.log(err);
+  getDocs(colRef)
+    .then((snapshot) => {
+      let books = [];
+
+      snapshot.docs.forEach((doc) => {
+        books.push({ ...doc.data(), id: doc.id });
       });
-  } catch (err) {
-    console.log(err);
-  }
+
+      // console.log(books);
+      searchRedir2(books);
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
 };
 fetchData2();
 
@@ -29,7 +52,7 @@ const searchRedir2 = (data) => {
       );
     })
     .forEach((res) => {
-      console.log(res);
+      // console.log(res);
       const nairaPrice = res.price.replaceAll("£", "₦");
       res.price = nairaPrice;
       loader2.style.display = "none";
@@ -51,7 +74,7 @@ const searchRedir2 = (data) => {
               </div>
               <div class="book-ctas">
                 <button class="book-amount">${res.price}</button>
-                <button class="book-cta-btn" onclick=viewBookInfo2(${res.id})>Buy Now</button>
+                <button class="book-cta-btn" onclick=viewBookInfo2("${res.id}")>See More</button>
               </div>
             </div>
           </div>

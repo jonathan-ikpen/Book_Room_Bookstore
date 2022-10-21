@@ -25,18 +25,18 @@ header {
 
 .header .container {
   display: flex;
-  gap: 5rem;
+  gap: 2rem;
   justify-content: space-between;
   align-items: center;
 }
 
 .header .logo {
-  width: clamp(12rem, 25vw, 15rem);
+  width: clamp(10rem, 25vw, 15rem);
 }
 
 .header nav {
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .header nav a {
@@ -74,6 +74,28 @@ header {
   scale: 1.1;
   transition: 0.5s;
 }
+
+#cart {
+  border: none !important;
+  background: none;
+  padding: 0;
+  position: relative;
+}
+
+#cart:hover {
+  background: none !important;
+}
+
+#cart .cart-num {
+  position: absolute;
+  bottom: 0px;
+  right: -3px;
+  color: #66757f;
+}
+
+/* #cart svg {
+  width: clamp(8rem, 25vw, 15rem);
+} */
 /* End Header */
 
 /* STICKY NAVIGATION */
@@ -623,7 +645,7 @@ footer .container {
 
 footer .logo {
   display: inline-block;
-  width: clamp(12rem, 25vw, 15rem);
+  width: clamp(15rem, 25vw, 15rem);
 }
 
 footer .logo img {

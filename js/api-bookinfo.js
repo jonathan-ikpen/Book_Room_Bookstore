@@ -1,22 +1,42 @@
+// import { colRef } from "../admin/scripts/firebaseConfig";
+import { db, auth, colRef, getDocs } from "./index.js";
+
 const booksWrapper = document.querySelector(".book_cards_wrapper");
 const loader3 = document.querySelector(".loader");
 
+// const fetchData2 = async () => {
+//   const url = "../book.json";
+//   try {
+//     const response = await fetch(url);
+//     let res = response.json();
+//     res
+//       .then((data) => {
+//         let data2 = data.Books;
+//         renderBooks(data2);
+//       })
+//       .catch((err) => {
+//         console.log(err);
+//       });
+//   } catch (err) {
+//     console.log(err);
+//   }
+// };
+
 const fetchData2 = async () => {
-  const url = "../book.json";
-  try {
-    const response = await fetch(url);
-    let res = response.json();
-    res
-      .then((data) => {
-        let data2 = data.Books;
-        renderBooks(data2);
-      })
-      .catch((err) => {
-        console.log(err);
+  getDocs(colRef)
+    .then((snapshot) => {
+      let books = [];
+
+      snapshot.docs.forEach((doc) => {
+        books.push({ ...doc.data(), id: doc.id });
       });
-  } catch (err) {
-    console.log(err);
-  }
+
+      console.log(books);
+      renderBooks(books);
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
 };
 fetchData2();
 
@@ -50,9 +70,9 @@ const renderBooks = (books) => {
     <p>${book.author}</p>
     <span>${book.price}</span>
     <a class="book-cta-btn" onclick=viewBookInfo(${book.id}) >
-        Click here to pay
+        See More
     </a>
-  </div>`;
+    </div>`;
 
     loader3.style.display = "none";
     booksWrapper.insertAdjacentHTML("afterbegin", html);

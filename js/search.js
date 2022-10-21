@@ -1,24 +1,49 @@
+import { db, auth, colRef, getDocs } from "./index.js";
+
+// const fetchData = async () => {
+//   const url = "../book.json";
+//   try {
+//     const response = await fetch(url);
+//     let res = response.json();
+//     res
+//       .then((data) => {
+//         let data2 = data.Books;
+//         if (bookPage) {
+//           searchFunc(data2);
+//         }
+//         if (foundBookContainer) {
+//           homeSearchFunc(data2);
+//         }
+//       })
+//       .catch((err) => {
+//         console.log(err);
+//       });
+//   } catch (err) {
+//     console.log(err);
+//   }
+// };
+// fetchData();
+
 const fetchData = async () => {
-  const url = "../book.json";
-  try {
-    const response = await fetch(url);
-    let res = response.json();
-    res
-      .then((data) => {
-        let data2 = data.Books;
-        if (bookPage) {
-          searchFunc(data2);
-        }
-        if (foundBookContainer) {
-          homeSearchFunc(data2);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
+  getDocs(colRef)
+    .then((snapshot) => {
+      let books = [];
+
+      snapshot.docs.forEach((doc) => {
+        books.push({ ...doc.data(), id: doc.id });
       });
-  } catch (err) {
-    console.log(err);
-  }
+
+      // console.log(books);
+      if (books) {
+        searchFunc(books);
+      }
+      if (foundBookContainer) {
+        homeSearchFunc(books);
+      }
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
 };
 fetchData();
 
@@ -39,6 +64,8 @@ const foundBookTemplate = document.querySelector("[data-book-template]");
 if (foundBookContainer) {
   searchInp.addEventListener("keyup", () => {
     if (searchInp.value == 0) {
+      result = [];
+      foundBookContainer.innerHTML = "";
       foundBookContainer.style.visibility = "hidden";
       foundBookContainer.style.opacity = 0;
     } else {
@@ -48,10 +75,19 @@ if (foundBookContainer) {
   });
 }
 
+const foundBook = foundBookTemplate?.content.cloneNode(true).children[0];
+const foundBookImg = foundBook?.querySelector("[data-img]");
+const foundBookTitle = foundBook?.querySelector("[data-title]");
+const foundBookAuthor = foundBook?.querySelector("[data-author]");
+// const redirect = `./show_book.html?boook_id=${id}`;
+
+let result = [];
+
 const homeSearchFunc = (data) => {
   searchInp.addEventListener("input", (e) => {
     const inputData = search.searchInp.value.toLowerCase();
-    console.log(inputData);
+    // console.log(inputData);
+    result = [];
     if (e.target.value.length > 3) {
       data
         .filter((datas) => {
@@ -61,22 +97,21 @@ const homeSearchFunc = (data) => {
           );
         })
         .forEach((e) => {
-          console.log(e);
-          const foundBook =
-            foundBookTemplate.content.cloneNode(true).children[0];
-          const foundBookImg = foundBook.querySelector("[data-img]");
-          const foundBookTitle = foundBook.querySelector("[data-title]");
-          const foundBookAuthor = foundBook.querySelector("[data-author]");
-          // const redirect = `./show_book.html?boook_id=${id}`;
-
-          foundBook.href = `/pages/show_book.html?boook_id=${e.id}`;
-          console.log(foundBook.href);
-          foundBookImg.src = e.imgUrl;
-          foundBookTitle.textContent = e.title;
-          foundBookAuthor.textContent = e.author;
-
-          foundBookContainer.append(foundBook);
+          result = [];
+          // console.log(e);
+          result.push(e);
         });
+      result.forEach((e) => {
+        foundBook.href = `/pages/show_book.html?boook_id=${e.id}`;
+        // console.log(foundBook.href);
+        foundBookImg.src = e.imgUrl;
+        foundBookTitle.textContent = e.title;
+        foundBookAuthor.textContent = e.author;
+
+        foundBookContainer.append(foundBook);
+      });
+    } else {
+      foundBookContainer.innerHTML = "";
     }
   });
 };
@@ -122,7 +157,7 @@ const searchFunc = (data) => {
     bookPage.innerHTML = "";
     setLoading(true);
     const inputData = search.searchInp.value.toLowerCase();
-    console.log(inputData);
+    // console.log(inputData);
     data
       .filter((datas) => {
         return (
@@ -136,7 +171,7 @@ const searchFunc = (data) => {
       });
     setLoading(false);
 
-    console.log(datas);
+    // console.log(datas);
 
     datas.forEach((res) => {
       const nairaPrice = res.price.replaceAll("£", "₦");
@@ -159,7 +194,7 @@ const searchFunc = (data) => {
             </div>
             <div class="book-ctas">
               <button class="book-amount">${res.price}</button>
-              <button class="book-cta-btn" onclick=viewBookInfo2(${res.id})>Buy Now</button>
+              <button class="book-cta-btn" onclick=viewBookInfo2("${res.id}")>See More</button>
             </div>
           </div>
         </div>
@@ -170,7 +205,7 @@ const searchFunc = (data) => {
 };
 
 const searchBtn2 = document.querySelector(".search-btn");
-console.log(searchBtn2);
+// console.log(searchBtn2);
 const searchRedir = () => {
   search.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -190,11 +225,12 @@ const searchRedir3 = () => {
   });
 };
 
-window.searchRedir = searchRedir;
-window.searchRedir3 = searchRedir3;
-
 // View book info
-const viewBookInfo2 = (id) => {
+export const viewBookInfo2 = (id) => {
   const redirect = `./show_book.html?boook_id=${id}`;
   location.href = redirect;
 };
+
+window.searchRedir = searchRedir;
+window.searchRedir3 = searchRedir3;
+window.viewBookInfo2 = viewBookInfo2;

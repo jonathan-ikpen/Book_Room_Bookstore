@@ -9,7 +9,9 @@ import {
   doc,
   query,
   where,
-  getDoc,
+  orderBy,
+  getDocs,
+  updateDoc,
 } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-firestore.js";
 import {
   getAuth,
@@ -32,9 +34,13 @@ const firebaseConfig = {
 initializeApp(firebaseConfig);
 
 // init services
-export const db = getFirestore();
-export const auth = getAuth();
+const db = getFirestore();
+const auth = getAuth();
 // console.log(auth);
+// console.log(db);
+
+// collection Ref
+const colRef = collection(db, "books");
 
 // END FIREBASE CONFIGURATION
 
@@ -44,20 +50,16 @@ const bookPrice = document.querySelectorAll(".book-amount");
 const bookPrice2 = document.querySelectorAll(".book-price");
 if (bookPrice) {
   bookPrice.forEach((book) => {
-    console.log(book.innerText);
     const newPrice =
       book.innerText.replaceAll("$", "₦") ||
       book.innerText.replaceAll("£", "₦");
     book.innerText = newPrice;
-    // console.log(newPrice);
   });
 }
 if (bookPrice2) {
   bookPrice2.forEach((book) => {
-    console.log(book.innerText);
     const newPrice = book.innerText.replaceAll("$", "₦");
     book.innerText = newPrice;
-    // console.log(newPrice);
   });
 }
 // const registerBtn = document.querySelector(".signup-nav-btn");
@@ -68,18 +70,18 @@ const dashBtn = document.querySelector(".dashBtn");
 
 // subscribing to auth changes
 onAuthStateChanged(auth, (user) => {
-  console.log("user status changed:", user);
+  // console.log("user status changed:", user);
   if (user) {
-    loginBtn.style.display = "none";
+    // loginBtn.style.display = "none";
     if (heading) {
-      heading.textContent = "You're already logged in! 😊";
+      heading.textContent = "You're logged in! 😊";
       registerBtn2.style.display = "none";
       dashBtn.style.display = "";
     }
     if (logoutBtn) {
       logoutBtn.style.display = "block";
     }
-    console.log(user.email);
+    // console.log(user.email);
   }
 });
 
@@ -101,3 +103,5 @@ export const logoutFunc = () => {
 };
 
 window.logoutFunc = logoutFunc;
+
+export { db, auth, colRef, getDocs, signOut };

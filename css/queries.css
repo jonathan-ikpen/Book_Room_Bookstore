@@ -1,4 +1,13 @@
+@media screen and (max-width: 540px) {
+  .pay {
+    margin: 4rem auto !important;
+  }
+}
+
 @media screen and (max-width: 414px) {
+  header .search {
+    padding: 0.3rem !important;
+  }
   section.searched_books_list .book-card {
     display: grid;
     grid-template-columns: auto 1fr;

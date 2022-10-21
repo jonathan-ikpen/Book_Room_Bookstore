@@ -19,7 +19,7 @@ loginForm.addEventListener("submit", (e) => {
   signInWithEmailAndPassword(auth, email, password)
     .then((cred) => {
       console.log("user logged in:", cred.user);
-      window.location = "../index.html";
+      window.location = "./index.html";
     })
     .catch((err) => {
       console.log(err.message);
@@ -40,5 +40,5 @@ if (auth.currentUser) {
   heading.textContent = "You're already logged in! 😊";
   dashBtn.style.display = "";
 } else {
-  heading.textContent = "LOGIN HERE";
+  heading.textContent = "";
 }

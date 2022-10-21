@@ -1,7 +1,7 @@
 import "./index.js";
 import { auth, db, logoutFunc } from "./index.js";
 
-console.log("script running...");
+// console.log("script running...");
 
 const buyLink = `https://api.whatsapp.com/send?phone=2348127964509text=Hello%20BookRoom%20I%20need%20the%20book%20with%20the%20title:%20sands%20of%20eppla`;
 
@@ -18,4 +18,10 @@ function buynow() {
   }
 }
 
+function seeMore(id) {
+  const redirect = `/pages/show_book.html?boook_id=${id}`;
+  location.href = redirect;
+}
+
 window.buynow = buynow;
+window.seeMore = seeMore;
