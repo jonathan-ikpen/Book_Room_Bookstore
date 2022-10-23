@@ -69,7 +69,7 @@ const renderBooks = (books) => {
     <h4>${book.title}</h4>
     <p>${book.author}</p>
     <span>${book.price}</span>
-    <a class="book-cta-btn" onclick=viewBookInfo(${book.id}) >
+    <a class="book-cta-btn" onclick=viewBookInfo("${book.id}") >
         See More
     </a>
     </div>`;
@@ -84,3 +84,5 @@ const viewBookInfo = (id) => {
   const redirect = `./show_book.html?boook_id=${id}`;
   location.href = redirect;
 };
+
+window.viewBookInfo = viewBookInfo;
