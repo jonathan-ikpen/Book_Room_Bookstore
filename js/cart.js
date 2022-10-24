@@ -215,7 +215,7 @@ function whatsappLink(currentBookObj) {
   let bookCost = `%20(Total:%20₦${totalCost})`;
 
   const buyLink2 =
-    "https://api.whatsapp.com/send?phone=2348124192833&text=Hello%20BookRoom,%20I%20need%20the%20book(s)%20with%20the%20title(s):%20";
+    "https://api.whatsapp.com/send?phone=2348087062777&text=Hello%20BookRoom,%20I%20need%20the%20book(s)%20with%20the%20title(s):%20";
 
   const whatsappUrl = buyLink2 + booksTitle + bookCost;
   console.log(whatsappUrl);
